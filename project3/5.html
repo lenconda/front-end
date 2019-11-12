@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .container p {
+      font-size: 48px;
+      position: absolute;
+    }
+
+    .container p:first-child {
+      color: #00f;
+      top: 0px;
+      left: 0px;
+      z-index: 999;
+    }
+
+    .container p:nth-child(2) {
+      color: #ff0;
+      top: 5px;
+      left: 5px;
+      z-index: 9999;
+    }
+
+    .container p:nth-child(3) {
+      color: #f00;
+      top: 10px;
+      left: 10px;
+      z-index: 99999;
+    }
+
+    .container p:nth-child(4) {
+      color: #00f;
+      top: 80px;
+      left: 0px;
+      z-index: 999;
+    }
+
+    .container p:nth-child(5) {
+      color: #ff0;
+      top: 85px;
+      left: 5px;
+      z-index: 9999;
+    }
+
+    .container p:last-child {
+      color: #f00;
+      top: 90px;
+      left: 10px;
+      z-index: 99999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>定位属性示例</p>
+    <p>定位属性示例</p>
+    <p>定位属性示例</p>
+    <p>定位属性示例</p>
+    <p>定位属性示例</p>
+    <p>定位属性示例</p>
+  </div>
+</body>
+</html>

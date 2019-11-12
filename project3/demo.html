@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica;
+    }
+
+    .header {
+      width: 100%;
+      height: 360px;
+      position: relative;
+      background: url('https://www.apple.com/v/macos/catalina/c/images/overview/hero/desktop__on4gxlz1xv6u_large.jpg') 100% / 100% no-repeat;
+      display: flex;
+      align-items: center;
+    }
+    .header > h1 {
+      color: #fff;
+      margin: 0;
+      font-weight: 200;
+      font-size: 64px;
+      margin-left: 2em;
+    }
+
+    .header .menu {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 2.2em;
+      font-weight: 200;
+    }
+
+    .header .menu li {
+      list-style-type: none;
+      float: left;
+      margin: 10px 3em;
+      transition: all .4s;
+      cursor: pointer;
+    }
+
+    .header .menu li:hover {
+      color: #ccc;
+      transition: all .4s;
+    }
+
+    .content {
+      padding: 2em;
+      font-weight: 200;
+    }
+
+    .content .left {
+      float: left;
+      width: 64%;
+    }
+
+    .content .right {
+      float: left;
+      width: 36%;
+    }
+
+    .content .right .menu {
+      padding: 0;
+      margin-top: 3em;
+    }
+
+    .content .right .menu li {
+      list-style-type: none;
+      margin: 1.5em 0;
+    }
+
+    .content .right .menu a,
+    .content .right .menu a:visited {
+      text-decoration: none;
+      color: #0071e3;
+      transition: all .4s;
+    }
+
+    .content .right .menu a:hover {
+      color: #003972;
+      transition: all .4s;
+    }
+
+    .footer {
+      clear: both;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Lorem Ipsum</h1>
+      <ul class="menu">
+        <li>Lorem</li>
+        <li>Ipsum</li>
+        <li>Sit</li>
+        <li>Amet</li>
+        <li>Dolor</li>
+        <li>Numquam</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="left">
+        <h1>Dolor Amet</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex saepe praesentium cumque ratione exercitationem, voluptatum perspiciatis quis at magni dolorum magnam sit incidunt id, eveniet non doloribus esse debitis reiciendis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, aut officia suscipit sit quo consequuntur in ullam adipisci unde eaque facilis, veniam voluptatibus facere error quod. Minima voluptatum omnis soluta.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam facilis ab quae cumque adipisci, nihil sed quod blanditiis voluptas ipsum porro modi! Ipsam beatae vitae quo, perspiciatis et cumque eius.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius reiciendis ea, dicta molestias nostrum nemo eos maxime impedit, ab explicabo sed itaque magnam consequatur dolores repudiandae a neque consequuntur in!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis nam aliquid deleniti corrupti ad non reprehenderit aliquam ex? Illo similique sunt enim est quas? Provident deleniti tenetur reprehenderit repudiandae dolore.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, dolorum incidunt laboriosam possimus suscipit voluptatum labore pariatur harum rerum cumque! Vitae consequuntur perspiciatis necessitatibus delectus? Aliquam quam consequatur quia cupiditate.</p>
+      </div>
+      <div class="right">
+        <h1>Architecto Officia</h1>
+        <ul class="menu">
+          <li><a href="">Quibusdam facilis</a></li>
+          <li><a href="">Nihil Sed Quod</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">
+      Copytight ©️ 2019 Lenconda. All right reserved.
+    </div>
+  </div>
+</body>
+</html>
