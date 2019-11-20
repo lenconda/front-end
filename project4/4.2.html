@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li {
+      list-style-type: none;
+      position: relative;
+    }
+
+    li:before {
+      content: "";
+      position: absolute;
+      left: -1em;
+      bottom: 50%;
+      transform: translateY(50%);
+      height: 0;
+      width: 0;
+      border: .5em solid transparent;
+      border-left: .5em solid #ff5c41;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li><a href="">新闻管理</a></li>
+  <li><a href="">用户管理</a></li>
+  <li><a href="">南京理工大学</a></li>
+  <li><a href="">百度</a></li>
+</ul>
+</body>
+</html>
