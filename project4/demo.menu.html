@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    table, tr, td {
+      width: 100%;
+    }
+
+    caption {
+      text-align: left;
+      color: #3c4d75;
+      padding-left: .5em;
+      border-radius: 5px 5px 0 0;
+      background-image: linear-gradient(#ffad69, #fe5f00);
+    }
+
+    table tr td a {
+      color: #3c4d75;
+      text-decoration: none;
+      position: relative;
+    }
+
+    table tr td a:before {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -.5em;
+      top: 50%;
+      transform: translateY(-50%);
+      border: .5em solid transparent;
+      border-left: .5em solid #dd2c00;
+    }
+
+    table tr td {
+      padding: .5em 10px;
+    }
+  </style>
+</head>
+<body>
+<table border="0">
+  <caption>商品分类（店中店除外）</caption>
+  <tr><td><a href="">图书频道</a></td></tr>
+  <tr><td><a href="">数码/IT</a></td></tr>
+  <tr><td><a href="">影像 试听 电脑</a></td></tr>
+  <tr><td><a href="">手机通讯</a></td></tr>
+  <tr><td><a href="">手机配件</a></td></tr>
+  <tr><td><a href="">化妆品 饰品 玩具 母婴 女装 运动</a></td></tr>
+  <tr><td><a href="">精品 箱包/鞋帽钟表/眼镜家具 家电 保健品 成人用品</a></td></tr>
+</table>
+</body>
+</html>

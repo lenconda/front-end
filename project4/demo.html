@@ -3,8 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .header {
+      padding: .5em;
+      padding-bottom: 0;
+      padding-right: 2em;
+      height: 4em;
+      text-align: right;
+      background-color: #b9dcff;
+    }
+
+    .header img {
+      height: 100%;
+      float: left;
+    }
+
+    table {
+      display: inline-block;
+      margin-top: 1em;
+    }
+
+    .nav a {
+      display: inline-block;
+      padding: 0 .2em;
+      color: #000;
+      text-decoration: none;
+      border-right: 1px solid #000;
+    }
+
+    .content {
+      padding: 8px;
+    }
+
+    .nav td:last-child a {
+      border-right: 0;
+    }
+
+    .content {
+      height: 400px;
+    }
+
+    .content iframe {
+      height: 100%;
+    }
+
+    .content iframe:first-child {
+      width: 30%;
+    }
+
+    .content iframe:last-child {
+      width: 69%;
+    }
+
+    .footer {
+      padding: 3em 0;
+      background-color: #eee;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-
+<div class="header">
+  <img src="logo.jpeg" alt="logo" />
+  <table border="0">
+    <tr class="nav">
+      <td><a href="demo.content.html" target="content">免费注册</a></td>
+      <td><a href="demo.content.html" target="content">关于拍拍</a></td>
+      <td><a href="demo.content.html" target="content">拍拍助理</a></td>
+      <td><a href="demo.content.html" target="content">联系我们</a></td>
+    </tr>
+  </table>
+</div>
+<div class="content">
+  <iframe src="demo.menu.html" frameborder="0"></iframe>
+  <iframe name="content" src="demo.content.html" frameborder="0"></iframe>
+</div>
+<div class="footer">
+  拍拍网网站运维中心 版权所有 <br />
+  Copyright ©️ 2010-2012. All right reserved.
+</div>
 </body>
 </html>
