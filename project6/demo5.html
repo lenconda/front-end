@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .calculator {
+      width: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul > li {
+      list-style-type: none;
+      float: left;
+      width: 6rem;
+      height: 3rem;
+      text-align: center;
+      margin: 10px;
+      background-color: #ececec;
+      border-radius: 3px;
+      line-height: 3rem;
+      transition: all .4s;
+    }
+
+    ul > li:hover {
+      cursor: pointer;
+      background-color: #dfdfdf;
+      transition: all .4s;
+    }
+
+    .input-wrapper {
+      padding: 0 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .input-wrapper > input {
+      font-size: 3rem;
+      line-height: 5rem;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      outline: 0;
+      border-radius: 5px;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="input-wrapper">
+      <input type="text" id="text" value="0" readonly="readonly" />
+    </div>
+    <div>
+      <ul>
+        <li onclick="get('sqrt')">√</li>
+        <li onclick="get('(')">(</li>
+        <li onclick="get(')')">)</li>
+        <li onclick="get('%')">%</li>
+        <li onclick="goBack()" id="clear">CE</li>
+      </ul>
+      <ul>
+        <li onclick="get('sin')">sin</li>
+        <li onclick="get(7)">7</li>
+        <li onclick="get(8)">8</li>
+        <li onclick="get(9)">9</li>
+        <li onclick="get('/')">÷</li>
+      </ul>
+      <ul>
+        <li onclick="get('cos')">cos</li>
+        <li onclick="get(4)">4</li>
+        <li onclick="get(5)">5</li>
+        <li onclick="get(6)">6</li>
+        <li onclick="get('*')">×</li>
+      </ul>
+      <ul>
+        <li onclick="get('tan')">tan</li>
+        <li onclick="get(1)">1</li>
+        <li onclick="get(2)">2</li>
+        <li onclick="get(3)">3</li>
+        <li onclick="get('-')">-</li>
+      </ul>
+      <ul>
+        <li onclick="get('π')">π</li>
+        <li onclick="get(0)">0</li>
+        <li onclick="get('.')">.</li>
+        <li onclick="eq()">=</li>
+        <li onclick="get('+')">+</li>
+      </ul>
+    </div>
+  </div>
+</body>
+<script>
+  var cleared = false;
+  var cal = '';
+  var π = Math.PI;
+
+  var sin = Math.sin;
+  var cos = Math.cos;
+  var tan = Math.tan;
+  var sqrt = Math.sqrt;
+
+  var get = function(key) {
+    var str = document.querySelector('#text').value;
+
+    if (cleared) {
+      str = '0';
+      cleared = false;
+    }
+
+    if (str.length < 20) {
+      str = (str == '0' ? '' : str);
+      if (str == '' && key == '00') {
+        str = '0';
+      } else {
+        str += key;
+      }
+    }
+
+    document.querySelector('#text').value = str;
+  }
+
+  var goBack= function() {
+    var str = document.querySelector('#text').value;
+
+    if (
+      str.substr(str.length - 3) === 'sin'
+      | str.substr(str.length - 3) === 'cos'
+      | str.substr(str.length - 3) === 'tan'
+    ) {
+      str = str.substring(0, str.length - 3);
+    } else if (str.substr(str.length - 4) === 'sqrt') {
+      str = str.substring(0, str.length - 4);
+    } else {
+      str = str.substring(0, str.length - 1);
+    }
+
+    if (str == '') str = '0';
+    document.querySelector('#text').value = str;
+  }
+
+  var clearText = function() {
+    document.querySelector('#text').value = '0';
+  }
+
+  var eq = function() {
+    cleared = true;
+    var str = document.querySelector('#text').value;
+    var result = eval(str)
+    if (result == 'Infinity') {
+      result = '输入有误';
+    }
+    document.querySelector('#text').value = result;
+  }
+
+  var clearButton = document.querySelector('#clear');
+
+  clearButton.oncontextmenu = function(e) {
+    e.preventDefault();
+  }
+
+  clearButton.onmouseup = function(e) {
+    if (!e) e = window.event;
+    if (e.button === 2) {
+      clearText();
+    }
+  }
+</script>
+</html>

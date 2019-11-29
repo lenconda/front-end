@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" placeholder="请输入" />
+    <button>确定</button>
+    <div id="result"></div>
+  </div>
+</body>
+<script>
+  window.onload = function() {
+    var confirmButton = document.querySelector('button');
+    confirmButton.onclick = function() {
+      var userInputValue = document.querySelector('input').value;
+      var resultField = document.querySelector('#result');
+
+      if (!isNaN(userInputValue)) {
+        resultField.innerHTML = 'Float: ' + parseFloat(userInputValue) + '\n Integer: ' + parseInt(userInputValue);
+      } else {
+        resultField.innerHTML = 'N/A';
+      }
+    }
+  }
+</script>
+</html>
