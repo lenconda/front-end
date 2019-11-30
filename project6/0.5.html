@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="input" />
+  <button id="btn">OK</button>
+  <div id="result"></div>
+</body>
+<script>
+  document.querySelector('#btn').onclick = function() {
+    var value = document.querySelector('#input').value.split('');
+    var result = value.reverse().join('').toUpperCase();
+    document.querySelector('#result').innerHTML = result;
+  }
+</script>
+</html>
