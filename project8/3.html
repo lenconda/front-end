@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: #093;
+      height: 300px;
+      margin: 0 auto;
+      border: 2px dotted #f30;
+      color: white;
+      box-sizing: border-box;
+      padding: 0 2em;
+    }
+
+    h2 {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .wrapper,
+    .controls-wrapper {
+      display: flex;
+    }
+
+    .wrapper {
+      align-items: stretch;
+    }
+
+    .controls-wrapper {
+      flex-direction: column;
+      margin-right: 4px;
+    }
+
+    .btn {
+      padding: 1em .5em;
+      margin: 4px 0;
+    }
+
+    .content-wrapper {
+      height: 8.4em;
+      background-color: #fff;
+      flex-grow: 1;
+      overflow: auto;
+      padding: 4px;
+    }
+
+    .content-wrapper li {
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .content-wrapper li[selected=true] {
+      background-color: blue;
+      color: #fff;
+    }
+
+    .delete-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>福利彩票投注助手</h2>
+    <div class="wrapper">
+      <div class="controls-wrapper">
+        <button class="btn" onclick="bet(1)">机选1注</button>
+        <button class="btn" onclick="bet(5)">机选5注</button>
+        <button class="btn" onclick="bet(10)">机选10注</button>
+      </div>
+      <ul id="contents" class="content-wrapper"></ul>
+      <div class="delete-wrapper">
+        <button id="deleteOne" class="btn" onclick="remove()">删除</button>
+        <button id="deleteAll" class="btn" onclick="removeAll()">全部删除</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var contents = document.querySelector('#contents');
+
+  var makeBet = function(count) {
+    return new Array(count).fill(null).map(value => {
+      return new Array(7).fill(null).map(value => parseInt(Math.random() * 30 + 1, 10)).join(' ');
+    });
+  };
+
+  var bet = function(count) {
+    for (var item of makeBet(count)) {
+      var element = document.createElement('li');
+      element.innerText = item;
+      element.onclick = function(event) {
+        for (var item of document.querySelectorAll('#contents li')) {
+          item.removeAttribute('selected');
+        }
+
+        event.target.setAttribute('selected', 'true');
+      };
+      contents.appendChild(element);
+    }
+  }
+
+  var remove = function() {
+    document.querySelectorAll('#contents li').forEach(value => {
+      if (value.getAttribute('selected') == 'true') {
+        value.parentElement.removeChild(value);
+      }
+    })
+  }
+
+  var removeAll = function() {
+    document.querySelector('#contents').innerHTML = null;
+  }
+</script>
+</html>

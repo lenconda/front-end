@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="startTimer()">开始状态栏滚动</button>
+  <button onclick="stopTimer()">停止状态栏滚动</button>
+</body>
+<script>
+  var timer;
+  var dir = 1;
+  var str = '欢迎来到 JavaScript 世界！';
+
+  function startStatus() {
+    var str_space = '';
+    var str_num = str_num + 1 * dir;
+    if (str_num > 30 || str_num < 0) {
+      dir = -1 * dir;
+    }
+
+    for (var i = 0; i < str_num; i++) {
+      str_space += ' ';
+      window.status = str_space + str;
+    }
+  }
+
+  function startTimer() {
+    timer = setInterval(startStatus(), 100);
+  }
+
+  function stopTimer() {
+    clearInterval(timer);
+    window.status = '状态栏移动结束！';
+  }
+</script>
+</html>

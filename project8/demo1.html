@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .content {
+      display: flex;
+      margin-top: 1em;
+    }
+
+    .content .list-wrapper {
+      border: 1px solid #ededed;
+      border-radius: 5px;
+      /* min-width: 120px; */
+      min-height: 180px;
+      flex-grow: 1;
+    }
+
+    .controls-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .controls-wrapper button {
+      width: 3em;
+    }
+
+    .list-wrapper {
+      padding: 4px 0;
+      font-size: 12px;
+    }
+
+    .list-wrapper li {
+      padding: 0 4px;
+      list-style-type: none;
+    }
+
+    .list-wrapper li:hover {
+      cursor: pointer;
+    }
+
+    .list-wrapper li[selected=true] {
+      background-color: darkseagreen;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <select name="department" id="department" onchange="handleChangeDepartment(event)"></select>
+    </div>
+    <ul class="content">
+      <ul class="list-wrapper" id="left"></ul>
+      <div class="controls-wrapper">
+        <button onclick="move('moveOneToRight')">&gt;</button>
+        <button onclick="move('moveAllToRight')">&raquo;</button>
+        <button onclick="move('moveOneToLeft')">&lt;</button>
+        <button onclick="move('moveAllToLeft')">&laquo;</button>
+      </div>
+      <ul class="list-wrapper" id="right"></ul>
+    </div>
+  </div>
+</body>
+<script>
+  var list = [
+    {
+      department: '宣传部',
+      staff: ['张高丽', '王沪宁', '栗战书', '李长春', '贺国强', '杨洁篪']
+    },
+    {
+      department: '巡视组',
+      staff: ['贾庆林', '刘延东', '王岐山', '郭伯雄', '刘云山', '孟建柱']
+    }
+  ]
+
+  for (item of list) {
+    var option = document.createElement('option');
+    option.value = item.department;
+    option.innerText = item.department;
+    document.querySelector('#department').appendChild(option);
+  }
+
+  var setDepartment = function(name) {
+    const leftList = document.querySelector('#left');
+
+    leftList.innerHTML = null;
+
+    list.forEach(value => {
+      if (value.department == document.querySelector('#department').value) {
+        value.staff.forEach(value => {
+          var listItem = document.createElement('li');
+          listItem.innerText = value;
+          listItem.onclick = function(event) {
+            for (var item of event.target.parentElement.children) {
+              item.removeAttribute('selected');
+            }
+            event.target.setAttribute('selected', 'true');
+          }
+          leftList.appendChild(listItem);
+        })
+      }
+    });
+  };
+
+  var handleChangeDepartment = function(event) {
+    setDepartment(event.target.value);
+  };
+
+  setDepartment(document.querySelector('#department').value);
+
+  var move = function(type) {
+    switch (type) {
+      case 'moveOneToRight':
+        document.querySelectorAll('#left > li').forEach(value => {
+          if (value.getAttribute('selected') == 'true') {
+            document.querySelector('#left').removeChild(value);
+            value.removeAttribute('selected');
+            document.querySelector('#right').appendChild(value);
+          }
+        });
+        break;
+      case 'moveAllToRight':
+        var items = document.querySelectorAll('#left > li');
+        items.forEach(value => {
+          document.querySelector('#left').removeChild(value);
+          document.querySelector('#right').appendChild(value);
+        });
+        break;
+      case 'moveOneToLeft':
+        document.querySelectorAll('#right > li').forEach(value => {
+          if (value.getAttribute('selected') == 'true') {
+            document.querySelector('#right').removeChild(value);
+            value.removeAttribute('selected');
+            document.querySelector('#left').appendChild(value);
+          }
+        });
+        break;
+      case 'moveAllToLeft':
+        var items = document.querySelectorAll('#right > li');
+        items.forEach(value => {
+          document.querySelector('#right').removeChild(value);
+          document.querySelector('#left').appendChild(value);
+        });
+        break;
+      default:
+        break;
+    }
+  }
+</script>
+</html>
