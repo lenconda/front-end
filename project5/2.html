@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    p {
+      font-size: 18px;
+      color: darkslateblue;
+      font-weight: bold;
+    }
+
+    .textarea1 {
+      width: 300px;
+      height: 20px
+    }
+
+    .textarea2 {
+      width: 750px;
+      height: 100px
+    }
+
+    table {
+      width: 800px;
+      background-image: url("1.jpg");
+      margin: auto
+    }
+
+    body {
+      background-color: cyan
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <form method="post">
+      <table border="1">
+        <tr>
+          <th style="color: #0033cc">大学生暑期社会实践调查问卷</th>
+        </tr>
+        <tr>
+          <td style="color: cornflowerblue">
+            您好！<br />
+            &ensp;&ensp;为了更好的了解人们对近年来计算机专业填报火热现象的看法，特制定本问卷，希望得到您的配合，
+            请认真阅读并回答以下问题，您的回答将直接影响本调查的可信度和有效性，真诚感谢您的支持，祝您天天愉快，谢谢！
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>1. 您的性别：</p>
+            <input type="radio" name="sex" value="male">男<br />
+            <input type="radio" name="sex" value="female">女
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>2. 您的学校：</p>
+            <textarea class="textarea1"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>3. 您的年级：</p>
+            <input type="radio" name="grade" value="onr">大一<br />
+            <input type="radio" name="grade" value="two">大二<br />
+            <input type="radio" name="grade" value="three">大三<br />
+            <input type="radio" name="grade" value="four">大四<br />
+            <input type="radio" name="grade" value="spec">专科
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>4. 报考该专业的原因：</p>
+            <input type="checkbox" name="reason" value="1">自己感兴趣<br />
+            <input type="checkbox" name="reason" value="2">对将来发展有利<br />
+            <input type="checkbox" name="reason" value="3">适应社会<br />
+            <input type="checkbox" name="reason" value="4">父母主张<br />
+            <input type="checkbox" name="reason" value="5">老师建议<br />
+            <input type="checkbox" name="reason" value="6">被学校调配<br />
+            <input type="checkbox" name="reason" value="7">其他
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>5. 您对该专业的建议：</p>
+            <input type="checkbox" name="advice" value="1">招收时重质不重量<br />
+            <input type="checkbox" name="advice" value="2">师资力量要改进<br />
+            <input type="checkbox" name="advice" value="3">要更适应社会需要<br />
+            <input type="checkbox" name="advice" value="4">加强专业实验室建设<br />
+            <input type="checkbox" name="advice" value="5">其他
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>6. 您认为该专业学生有必要参加社会实践：</p>
+            <input type="radio" name="answer" value="yes">有必要<br />
+            <input type="radio" name="answer" value="no">没有必要<br />
+            <input type="radio" name="answer" value="whatever">无所谓<br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>7. 您的父母是否赞成您读该专业：</p>
+            <input type="radio" name="answer" value="yes">很赞成，希望如此<br />
+            <input type="radio" name="answer" value="no">一般，不是很高兴<br />
+            <input type="radio" name="answer" value="dontunderstand">不了解<br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>8. 您对学校的建议：</p>
+            <textarea class="textarea2">请您提出宝贵的建议：</textarea>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center">
+            <input type="submit" value="提交答案">
+            &ensp;&ensp;&ensp;&ensp;
+            <input type="reset" value="清空">
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center">版权所有，计算机科学与技术（软件工程）174班</td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+
+</html>
