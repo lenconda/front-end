@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>窗口事件处理</title>
+</head>
+<body onbeforeunload="stay()" onload="open()">
+跳转<a href="#">sy7-3.html</a>
+<script>
+    var pageOpen;
+    var pageClose;
+    function open(){
+        pageOpen = new Date();
+    }
+    function stay() {
+        pageClose = new Date();
+        var minutes = (pageClose.getMinutes() - pageOpen.getMinutes());
+        var seconds = (pageClose.getSeconds() - pageOpen.getSeconds());
+        var time = (seconds + (minutes * 60));
+        time = (time + " 秒钟 ");
+        alert(' 您在这儿停留了 ' + time + '. 欢迎下次再来 !');
+        event.returnValue = false;
+    }
+</script>
+</body>
+</html>

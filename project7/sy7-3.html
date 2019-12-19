@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件处理</title>
+</head>
+<body>
+<form>请按键:
+    <input type="text" onKeyDown="keyDown();">
+</form>
+<script>
+    function keyDown() {
+        var key = event.keyCode; //按键的信息保存在事件发生时创建的 event 对象中
+        alert(" 您按下的键的代码是：" + key);
+    }
+</script>
+</body>
+</html>
